@@ -1,5 +1,3 @@
-"use strict";
-
 Array.prototype.newForEach = function (callback, thisArg) {
 	const max = this.length;
 
