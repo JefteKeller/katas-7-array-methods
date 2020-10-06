@@ -72,8 +72,8 @@ Array.prototype.newFindIndex = function (callback, thisArg) {
 };
 
 Array.prototype.newFilter = function (callback, thisArg) {
-	const max = this.length;
 	const newArray = [];
+	const max = this.length;
 
 	for (let index = 0; index < max; index++) {
 		if (this[index] === undefined) continue;
