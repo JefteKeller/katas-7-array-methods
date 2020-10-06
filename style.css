@@ -6,7 +6,7 @@
 
 body {
   font-family: monospace;
-  background-image: url("/images/katas-bg.jpg");
+  background: url("./images/katas-bg.jpeg");
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
