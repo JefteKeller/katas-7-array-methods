@@ -161,3 +161,25 @@ Array.prototype.newIndexOf = function (searchElement, fromIndex) {
 
 	return -1;
 };
+
+Array.prototype.newJoin = function (separator = ",") {
+	let newString = "";
+
+	for (let index = 0; index < this.length; index++) {
+		if (this[index] === undefined) {
+			if (index === this.length - 1) {
+				continue;
+			}
+			newString += separator;
+			continue;
+		}
+
+		if (index === this.length - 1) {
+			newString += this[index];
+			continue;
+		}
+		newString += this[index] + separator;
+	}
+
+	return newString;
+};
