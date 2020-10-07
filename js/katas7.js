@@ -170,15 +170,15 @@ Array.prototype.newJoin = function (separator = ",") {
 			if (index === this.length - 1) {
 				continue;
 			}
-			newString += separator;
+			newString += `${separator}`;
 			continue;
 		}
 
 		if (index === this.length - 1) {
-			newString += this[index];
+			newString += `${this[index]}`;
 			continue;
 		}
-		newString += this[index] + separator;
+		newString += `${this[index]}${separator}`;
 	}
 
 	return newString;
