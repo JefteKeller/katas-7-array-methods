@@ -183,3 +183,55 @@ Array.prototype.newJoin = function (separator = ",") {
 
 	return newString;
 };
+
+Array.prototype.newSlice = function (index, max) {
+	const newArray = [];
+
+	// Testa as regras de alcance do Metodo //
+	if (index > this.length) {
+		return [];
+	}
+
+	if (index === undefined || index === null) {
+		index = 0;
+	} else if (index < 0) {
+		if (Math.abs(index) > this.length) {
+			index = 0;
+		}
+	}
+
+	if (max === undefined || max === null) {
+		max = this.length;
+	} else if (max > this.length) {
+		max = this.length;
+	}
+
+	// Se o indice for Negativo //
+	if (index < 0) {
+		let start = this.length + index;
+		index = 0;
+
+		for (; index < max; index++) {
+			if (this[start] === undefined) {
+				newArray.length++;
+				start++;
+				continue;
+			}
+			newArray[newArray.length] = this[start];
+			start++;
+		}
+		return newArray;
+	}
+
+	// Se o Indice for Positivo //
+	for (; index < max; index++) {
+		if (this[index] === undefined) {
+			newArray.length++;
+			continue;
+		}
+
+		newArray[newArray.length] = this[index];
+	}
+
+	return newArray;
+};
