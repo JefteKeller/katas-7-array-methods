@@ -143,6 +143,8 @@ Array.prototype.newIndexOf = function (searchElement, fromIndex) {
 	if (fromIndex < 0) {
 		index = this.length;
 		for (; index > 0; index--) {
+			if (this[index] === undefined) continue;
+
 			if (this[index] === searchElement) {
 				return index;
 			}
@@ -150,6 +152,8 @@ Array.prototype.newIndexOf = function (searchElement, fromIndex) {
 	}
 
 	for (; index < this.length; index++) {
+		if (this[index] === undefined) continue;
+
 		if (this[index] === searchElement) {
 			return index;
 		}
