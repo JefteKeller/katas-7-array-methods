@@ -157,14 +157,3 @@ Array.prototype.newIndexOf = function (searchElement, fromIndex) {
 
 	return -1;
 };
-
-function test(a, b) {
-	console.log(a, b);
-	return a > 3;
-}
-const arr = [11, 2, 10, 5, 12];
-const arr2 = [1, 20, , 110, 55];
-const arr3 = [71, , 250, 1150, 555];
-const arr4 = ["S"];
-
-console.log(arr.newIndexOf(12, -10));
