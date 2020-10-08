@@ -189,36 +189,40 @@ Array.prototype.newSlice = function (index, max) {
 
 	// Testa as regras de alcance do Metodo //
 	if (index > this.length) {
+		// Se o Index fornecido for maior que o comprimento do Array, retorna um Array vazio //
 		return [];
 	}
 
 	if (index === undefined || index === null) {
+		// Se o Index não for fornecido, percorre toda a extensão do Array //
 		index = 0;
 	} else if (index < 0) {
 		if (Math.abs(index) > this.length) {
+			// Se o Index fornecido for negativo e Maior que a extensão do Array, percorre toda a extensão do Array. //
 			index = 0;
 		}
 	}
 
+	// Se o Max não for fornecido ou for Maior que o Comprimento do Array, percorre toda a extensão do Array //
 	if (max === undefined || max === null) {
 		max = this.length;
 	} else if (max > this.length) {
 		max = this.length;
+	} else if (max < 0) {
+		// Se o Max fornecido for Negativo, defini o Max em relação ao final do Array //
+		max = this.length + max;
 	}
 
-	// Se o indice for Negativo //
+	// Se o Index fornecido for Negativo, defini o Max em relação ao final do Array //
 	if (index < 0) {
-		let start = this.length + index;
-		index = 0;
+		index = this.length + index;
 
 		for (; index < max; index++) {
-			if (this[start] === undefined) {
+			if (this[index] === undefined) {
 				newArray.length++;
-				start++;
 				continue;
 			}
-			newArray[newArray.length] = this[start];
-			start++;
+			newArray[newArray.length] = this[index];
 		}
 		return newArray;
 	}
